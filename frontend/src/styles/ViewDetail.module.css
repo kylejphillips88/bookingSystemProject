@@ -1,0 +1,10 @@
+.displayFormat{
+    background-color: #ffffff;
+    min-width: 150px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.textFormat{
+    font-family: Helvetica, Arial, sans-serif;
+}
