@@ -37,7 +37,7 @@ export const getRideRequest: RequestHandler = async (req, res, next) => {
 interface createRideRequestBody {
     pickup?: string,
     dest?: string,
-    wheelchair?: boolean,
+    wheelchair?: string,
     passengers?: number,
     additionalNotes?: string
 }

@@ -2,6 +2,7 @@ import { RequestHandler } from "express";
 import createHttpError from "http-errors";
 import MemberModel from '../models/member';
 import bcrypt from "bcrypt";
+import env from '../util/validateEnv';
 
 export const getAuthenticatedMember: RequestHandler = async (req, res, next) => {
     const authenticatedMemberId = req.session.memberId;
@@ -62,7 +63,7 @@ export const signUpMember: RequestHandler<unknown, unknown, SignUpMemberBody, un
             throw createHttpError(409, "Account already existing with this email address.")
         }
 
-        const passwordHashed = await bcrypt.hash(passwordRaw, 10);
+        const passwordHashed = await bcrypt.hash(passwordRaw, env.HASH_LENGTH);
 
         const newMember = await MemberModel.create({
             email: email,

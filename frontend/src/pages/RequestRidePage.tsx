@@ -65,27 +65,43 @@ const RequestARide = ({ onRequestSaved }: RequestARideProps) => {
                         <Form.Check
                             inline
                             type={'radio'}
-                            value={'true'}
+                            value={'Yes'}
                             label={'Yes'}
                             {...register("wheelchair", { required: "Required" })}
                         />
                         <Form.Check
                             inline
                             type={'radio'}
-                            value={"false"}
+                            value={"No"}
                             label={'No'}
                             {...register("wheelchair", { required: "Required" })}
                         />
                     </div>
+                    <Form.Control.Feedback type='invalid'>
+                        {errors.wheelchair?.message}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className='mb-3' controlId="passengers">
-                    <Form.Label>How many passengers are travelling including yourself?</Form.Label>
-                    <Form.Control
-                        type='number'
-                        defaultValue={1}
-                        isInvalid={!!errors.passengers}
-                        {...register("passengers", { required: "Required" })}
-                    />
+                    <Form.Label>Will you have a companion traveling with you?<br/><i>Maximum of one additional passenger only.</i></Form.Label>
+                    <div
+                        key='inline'
+                    >
+                        <Form.Check
+                            inline
+                            type={'radio'}
+                            value={2}
+                            label={'Yes'}
+                            {...register("passengers", { required: "Required" })}
+                        />
+                        <Form.Check
+                            inline
+                            type={'radio'}
+                            value={1}
+                            label={'No'}
+                            {...register("passengers", { required: "Required" })}
+                        /><br/>
+                    
+                    </div>
                     <Form.Control.Feedback type='invalid'>
                         {errors.passengers?.message}
                     </Form.Control.Feedback>

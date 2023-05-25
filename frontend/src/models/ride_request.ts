@@ -2,7 +2,7 @@ export interface RideRequest {
     _id: string,
     pickup: string,
     dest: string,
-    wheelchair: boolean,
+    wheelchair: string,
     passengers: number,
     additionalNotes?: string,
     createdAt: string,
